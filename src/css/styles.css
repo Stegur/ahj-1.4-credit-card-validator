@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.validator {
+  margin-top: 200px;
+}
+
+.card-list {
+  display: flex;
+
+  margin-bottom: 5px;
+  padding-left: 0;
+
+  list-style: none;
+}
+
+.card {
+  width: 39px;
+  height: 25px;
+}
+
+.card:not(:last-child) {
+  margin-right: 3px;
+}
+
+.visa {
+  background-image: url('../img/card-visa.gif');
+}
+
+.mastercard {
+  background-image: url('../img/card-mastercard.gif');
+}
+
+.amex {
+  background-image: url('../img/card-amex.gif');
+}
+
+.discover {
+  background-image: url('../img/card-discover.gif');
+}
+
+.jcb {
+  background-image: url('../img/card-jcb.gif');
+}
+
+.diners {
+  background-image: url('../img/card-diners.gif');
+}
+
+.mir {
+  background-image: url('../img/card-mir.gif');
+}
+
+.disabled-card {
+  background-position: 0 -25px;
+  opacity: 0.3;
+}
+
+.input,
+.validate-btn {
+  padding: 6px 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.validate-btn {
+  margin-left: 5px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.error {
+  margin-top: 5px;
+  color: gray;
+}

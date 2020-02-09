@@ -5,14 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Kill the satan</title>
+  <title>Credit Card Validator</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
   <div class="container">
-
+    <div class="validator">
+      <ul class="card-list">
+        <li class="card visa" title="Visa"></li>
+        <li class="card mastercard" title="Mastercard"></li>
+        <li class="card amex" title="American Express"></li>
+        <li class="card discover" title="Discover"></li>
+        <li class="card jcb" title="JCB"></li>
+        <li class="card diners" title="Diners"></li>
+        <li class="card mir" title="Mir"></li>
+      </ul>
+      <form id="form">
+        <input type="number" placeholder="Credit card number" name="card-number" id="card-number" class="input">
+        <button id="validate-btn" class="validate-btn">Click to Validate</button>
+        <p id="number-error" class="error"></p>
+      </form>
+    </div>
   </div>
   <script src="js/app.js"></script>
 </body>
