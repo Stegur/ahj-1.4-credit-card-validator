@@ -10,7 +10,7 @@ describe('Validation form', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch(
       {
-        headless: false,
+        headless: true,
       //   slowMo: 100,
       //   devtools: true,
       },
@@ -30,6 +30,7 @@ describe('Validation form', () => {
     const $submit = await $form.$('#validate-btn');
     $submit.click();
 
+    await page.waitFor(1000);
     const totalCardsCount = await page.$$eval('.card', (nodes) => nodes.length);
     const disabledCardsCount = await page.$$eval('.disabled-card', (nodes) => nodes.length);
 
