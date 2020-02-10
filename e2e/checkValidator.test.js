@@ -9,11 +9,11 @@ describe('Validation form', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch(
-      // {
-      //   headless: false,
+      {
+        headless: false,
       //   slowMo: 100,
       //   devtools: true,
-      // },
+      },
     );
     page = await browser.newPage();
   });
