@@ -1,5 +1,9 @@
 import puppeteer from 'puppeteer';
 
+const childProcess = require('child_process');
+
+const server = childProcess.fork(`${__dirname}/test-server.js`);
+
 jest.setTimeout(30000);
 
 describe('Validation form', () => {
@@ -8,20 +12,27 @@ describe('Validation form', () => {
   const baseUrl = 'http://localhost:9000';
 
   beforeAll(async () => {
-    browser = await puppeteer.launch(
-      {
-        // headless: true,
-        // slowMo: 100,
-        // devtools: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      },
-    );
+    await new Promise((resolve, reject) => {
+      server.on('error', () => {
+        reject();
+      });
+      server.on('message', (message) => {
+        if (message === 'ok') {
+          resolve();
+        }
+      });
+    });
+    browser = await puppeteer.launch({
+      // headless: false, // show gui
+      // slowMo: 100,
+      // devtools: true, // show devTools
+    });
     page = await browser.newPage();
-  });
-
-  afterAll(async () => {
+  }); // открыть браузер
+  afterAll(async () => { // закрыть браузер
     await browser.close();
-  });
+    server.kill();
+  }); // закрыть браузер
 
   test('should add .disabled-card class for invalid cards systems', async () => {
     await page.goto(baseUrl);
