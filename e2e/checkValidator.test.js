@@ -9,7 +9,7 @@ jest.setTimeout(30000);
 describe('Validation form', () => {
   let browser = null;
   let page = null;
-  const baseUrl = 'http://localhost:9000';
+  const baseUrl = 'http://localhost:9999';
 
   beforeAll(async () => {
     await new Promise((resolve, reject) => {
