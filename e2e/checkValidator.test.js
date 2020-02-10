@@ -9,11 +9,12 @@ describe('Validation form', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch(
-      // {
-      //   headless: true,
-      //   slowMo: 100,
-      //   devtools: true,
-      // },
+      {
+        // headless: true,
+        // slowMo: 100,
+        // devtools: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      },
     );
     page = await browser.newPage();
   });
